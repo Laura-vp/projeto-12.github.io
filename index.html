@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>projeto 12</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel='stylesheet' type='text/css' media='screen' href='main.css'>
+    <script src='main.js'></script>
+
+    <style>
+
+body {
+      background-color: #f9c8ff;
+ 
+    }
+       
+
+    </style>
+</head>
+<body>
+    
+    <form  >
+        <center>
+        <label for="n" style = "font-size: large;">Escreva um número natural:</label><br>
+        <input type="number" id="n"   oninput="this.value|=0" required>
+        </br>
+    </br>
+
+        <button type="button" style="font-size: medium ;" onclick="par()">Par ou ímpar???</button>
+        
+        
+            <p id ="p" name = "p" style="font-size: large" >O número é...</p> 
+   
+             
+        <h4>Azul = o número é par</h4>
+        <h4>Laranja = o número é ímpar</h4>
+        <h4>Cinzento = o número não é par nem ímpar</h4></center>
+        
+    </form>
+   
+
+    <script type=text/javascript>
+    
+        function par() {
+ 
+            let n, p
+            n = parseInt(document.getElementById("n").value)
+            p = parseInt(document.getElementById("p").value)
+            
+
+            if (isNaN (n)) {
+                alert("Erro: tens de inserir um número na caixa!")
+                return;
+            }
+
+            
+            else if   (n == 0) {
+                document.body.style.backgroundColor = "gray"; 
+                p = "O número é 0.";
+               
+                }
+
+                    
+                
+            else if (n % 2 == 0) {
+                document.body.style.backgroundColor = "#abd9db"; // azul
+                p = "O número é par.";
+               
+                }
+
+               
+
+            else  {
+                document.body.style.backgroundColor = "#f7b44f";  //laranja
+                p = "O número é ímpar.";
+
+                }
+
+                document.getElementById("p").innerText = p;
+        
+
+       
+        }
+    
+    </script>
+</body>
+</html>
