@@ -12,41 +12,93 @@
 
 body {
       background-color: #f9c8ff;
- 
-    }
-       
+        font-family: Inter,Helvetica,"Apple Color Emoji","Segoe UI Emoji",NotoColorEmoji,"Noto Color Emoji","Segoe UI Symbol","Android Emoji",EmojiSymbols,-apple-system,system-ui,"Segoe UI",Roboto,"Helvetica Neue","Noto Sans",sans-serif;
+}
+
+        .form {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-top: -200px;
+    margin-left: -250px;
+}
+
+#h{
+    border-radius: 999px;
+    border: 10px solid #003366;
+    color: #FFFFFF;
+    background-color: #003366;
+    text-align: center;
+  height: 50px;
+  line-height: 50px;
+  width: 200px;
+  margin: 0 auto;
+}
+
+button {
+  background: #003366;
+  border-radius: 999px;
+  box-shadow: #003366 0 10px 20px -10px;
+  box-sizing: border-box;
+  color: #FFFFFF; 
+  font-family: Inter,Helvetica,"Apple Color Emoji","Segoe UI Emoji",NotoColorEmoji,"Noto Color Emoji","Segoe UI Symbol","Android Emoji",EmojiSymbols,-apple-system,system-ui,"Segoe UI",Roboto,"Helvetica Neue","Noto Sans",sans-serif;
+  font-size: 30px;
+  font-weight: 500;
+  line-height: 24px;
+  opacity: 1;
+  outline: 0 solid transparent;
+  padding: 8px 18px;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  width: fit-content;
+  word-break: break-word;
+  border: 0;
+}
+
 
     </style>
 </head>
 <body>
+    <p>Legenda:</p>
+    <p>Azul: o número é par</p>
+    <p>Laranja: o número é ímpar<p>
+    <p>Cinzento: o número não é par nem ímpar<p>
+   
     
-    <form  >
+    <form class = "form" >
         <center>
-        <label for="n" style = "font-size: large;">Escreva um número natural:</label><br>
+        </br>
+    </br>
+</br>
+</br>
+        <b><label for="n" style = "font-size: large;">Escreva um número natural e descubra se é par ou ímpar:</label></b><br><br>
+
         <input type="number" id="n"   oninput="this.value|=0" required>
         </br>
     </br>
+    
 
-        <button type="button" style="font-size: medium ;" onclick="par()">Par ou ímpar???</button>
-        
-        
-            <p id ="p" name = "p" style="font-size: large" >O número é...</p> 
+        <button type="button" onclick="par()">?</button>
    
-             
-        <h4>Azul = o número é par</h4>
-        <h4>Laranja = o número é ímpar</h4>
-        <h4>Cinzento = o número não é par nem ímpar</h4></center>
-        
-    </form>
+        </form>
+
+   
+
+    <p id ="p" name = "p" style="font-size: large" >O número é...</p> 
+    <h1 style = "display: none;" id = "h"></h1>
+
+</center> 
+    
    
 
     <script type=text/javascript>
     
         function par() {
  
-            let n, p
+            let n, h
             n = parseInt(document.getElementById("n").value)
-            p = parseInt(document.getElementById("p").value)
+            h = document.getElementById("h");
             
 
             if (isNaN (n)) {
@@ -57,31 +109,37 @@ body {
             
             else if   (n == 0) {
                 document.body.style.backgroundColor = "gray"; 
-                p = "O número é 0.";
-               
+                document.getElementById('h').style.display = 'block';
+                h = "Nulo";
                 }
 
                     
                 
             else if (n % 2 == 0) {
                 document.body.style.backgroundColor = "#abd9db"; // azul
-                p = "O número é par.";
+                document.getElementById('h').style.display = 'block';
+                h = "Par";
                
                 }
 
                
 
             else  {
-                document.body.style.backgroundColor = "#f7b44f";  //laranja
-                p = "O número é ímpar.";
+                document.body.style.backgroundColor = "#ffac47";  //laranja
+                document.getElementById('h').style.display = 'block';
+        
+                h = "Ímpar";
 
                 }
 
-                document.getElementById("p").innerText = p;
+              
+                document.getElementById("h").innerText = h;
         
 
        
         }
+
+      
     
     </script>
 </body>
